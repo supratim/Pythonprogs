@@ -1,0 +1,12 @@
+import  gdata.docs
+import gdata.docs.service
+
+gd_client = gdata.docs.service.DocsService()
+
+gd_client.ClientLogin('sdey@global-act.org','sup12345')
+
+feed= gd_client.GetDocumentListFeed()
+
+for entry in feed.entry:
+    print '%s - %s' % (entry.title.text, entry.GetDocumentType())
+    
